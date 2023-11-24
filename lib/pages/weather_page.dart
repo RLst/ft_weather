@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ft_weather/services/weather_service.dart';
 import 'package:lottie/lottie.dart';
-
-import '../models/weather_model.dart';
-import '../services/weather_service.dart';
+import '../models/weather.dart';
+// import '../services/weather_service.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -13,19 +13,22 @@ class WeatherPage extends StatefulWidget {
 
 class _WeatherPageState extends State<WeatherPage> {
 
-  //api key
-  final _weatherService = WeatherService('c18499b9d367f910eb58cda6580101a8');
+  static const String weatherKey = 'c18499b9d367f910eb58cda6580101a8';
+  // static const String googleKey = 'AIzaSyCYSCWTOKGTMZaSbK_lNNfGlFMBywNYFUE';
+
+  final _weatherService = WeatherService(weatherKey);
+
   Weather? _weather;
   late String _weatherAssetPath;
   
   //fetch weather
   _fetchWeather() async {
     //get the current city
-    String cityName = await _weatherService.getCurrentCity();
-
+    // String cityName = await _weatherService.getCurrentCity();
+    
     //get weather for the city
     try {
-      final weather = await _weatherService.getWeather(cityName);
+      final weather = await _weatherService.getWeatherByCoords();
       setState(() {
         _weather = weather;
       });

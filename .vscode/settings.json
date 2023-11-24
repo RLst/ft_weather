@@ -1,7 +1,13 @@
 {
     "cSpell.words": [
+        "appspot",
+        "Cupertino",
+        "firebaseapp",
+        "Geocoder",
         "geolocator",
         "Placemark",
-        "placemarks"
-    ]
+        "placemarks",
+        "Schyler"
+    ],
+    "cmake.configureOnOpen": false
 }
