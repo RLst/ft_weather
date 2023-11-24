@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ft_weather/services/weather_service.dart';
 import 'package:lottie/lottie.dart';
 import '../models/weather.dart';
-// import '../services/weather_service.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -21,12 +20,7 @@ class _WeatherPageState extends State<WeatherPage> {
   Weather? _weather;
   late String _weatherAssetPath;
   
-  //fetch weather
   _fetchWeather() async {
-    //get the current city
-    // String cityName = await _weatherService.getCurrentCity();
-    
-    //get weather for the city
     try {
       final weather = await _weatherService.getWeatherByCoords();
       setState(() {
@@ -74,7 +68,6 @@ class _WeatherPageState extends State<WeatherPage> {
     super.initState();
 
     _fetchWeather();
-
   }
 
   @override
